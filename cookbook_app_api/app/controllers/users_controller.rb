@@ -3,10 +3,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
   #if they are logged in and token is authenticated they can do all the above but for login or create since they have already done that
   before_action :authenticate_token, except: [:login, :create]
+  before_action :authorize_user, except: [:login, :create, :index]
 
   #user login with authenitcation and json web tokens
   def login
-    @user = User.find_by(username: params[:user][:username])
+    user = User.find_by(username: params[:user][:username])
     #if the user and the authentication match
     if user && user.authenticate(params[:user][:password])
       #give the user a token
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
   def show
     render json: @user
   end
-
+  
   # POST /users
   def create
     @user = User.new(user_params)
@@ -66,7 +67,7 @@ class UsersController < ApplicationController
     #sets up the header payload and signature validations
     def payload(id, username)
       {
-        exp: (Time.now + 5.minutes).to_i,
+        exp: (Time.now + 30.minutes).to_i,
         iat: Time.now.to_i,
         iss: ENV["JWT_ISSUER"],
         user: {

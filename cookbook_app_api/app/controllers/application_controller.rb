@@ -37,5 +37,11 @@ class ApplicationController < ActionController::API
   def show
     render json: get_current_user
   end
+  
+  def authorize_user
+    puts "AUTHORIZE USER"
+    puts "params #{params[:id]}"
+    render json: {status: 401, message: "unauthorized please sign in or register"} unless get_current_user.id == params[:id].to_i
+  end
 
 end
