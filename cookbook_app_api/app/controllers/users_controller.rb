@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     end
   end
 
-
+# probably wont want a user index
   # GET /users
   def index
     @users = User.all
