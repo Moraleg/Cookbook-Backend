@@ -1,3 +1,7 @@
+require 'jwt'
+require 'dotenv-rails'
+require 'bcrypt'
+
 class ApplicationController < ActionController::API
 
   def authenticate_token
@@ -12,16 +16,17 @@ class ApplicationController < ActionController::API
     #pass token without the bearer using regex
     pattern = /^Bearer /
     puts "TOKEN WITHOUT BEARER"
-    puts header.gsub(patter, "") if header && header.match(pattern)
+    puts header.gsub(pattern, '') if header && header.match(pattern)
+    header.gsub(pattern, '') if header && header.match(pattern)
   end
 
   def decode_token(token_input)
     puts "DECODE TOKEN, token input: #{token_input}"
     #set token value
-    puts token = JWT.decode(token_input, ENV["JWT_SECRET"], true)
+    puts token = JWT.decode(token_input, ENV['JWT_SECRET'], true)
     #render json: {decoded: true}
     #make sure this runs
-    JWT.decode(token_input, ENV["JWT_SECRET"], true)
+    JWT.decode(token_input, ENV['JWT_SECRET'], true)
     #if it doesnt run
   rescue
     render json: {status: 401, message: "unauthorized please login in or sign up"}
@@ -37,7 +42,7 @@ class ApplicationController < ActionController::API
   def show
     render json: get_current_user
   end
-  
+
   def authorize_user
     puts "AUTHORIZE USER"
     puts "params #{params[:id]}"
