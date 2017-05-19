@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     #if the user and the authentication match
     if user && user.authenticate(params[:user][:password])
       #give the user a token
+      #byebug
       token = create_token(user.id, user.username)
       #let them be logged in and all ok
       render json: {status: 200, token: token, user: user}
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
   def show
     render json: @user
   end
-  
+
   # POST /users
   def create
     @user = User.new(user_params)
