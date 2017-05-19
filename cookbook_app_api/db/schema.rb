@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170519155241) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "recipe_id"
   end
 
 end
