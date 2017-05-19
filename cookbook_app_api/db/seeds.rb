@@ -16,3 +16,10 @@
     img: Faker::LoremPixel.image("50x60")
   )
 end
+
+1.times do
+    User.create(
+    username: 'guest',
+    password: 'guest'
+    )
+end
