@@ -12,8 +12,14 @@
     ingredients: Faker::Food.ingredient,
     description: Faker::HowIMetYourMother.catch_phrase,
     directions: Faker::Food.measurement,
-    #author: Faker::Book.author,
     servings: Faker::Number.between(1, 5),
     img: Faker::LoremPixel.image("50x60")
   )
+end
+
+1.times do
+    User.create(
+    username: 'guest',
+    password: 'guest'
+    )
 end
