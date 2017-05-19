@@ -11,8 +11,7 @@
     title: Faker::Dessert.variety,
     ingredients: Faker::Food.ingredient,
     description: Faker::HowIMetYourMother.catch_phrase,
-    directions: Faker::Food.measurement,
-    author: Faker::Book.author,
+    directions: Faker::Food.measurement, 
     servings: Faker::Number.between(1, 5),
     img: Faker::LoremPixel.image("50x60")
   )

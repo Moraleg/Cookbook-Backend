@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     end
   end
 
-
+# probably wont want a user index
   # GET /users
   def index
     @users = User.all
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def show
     render json: @user
   end
-  
+
   # POST /users
   def create
     @user = User.new(user_params)
