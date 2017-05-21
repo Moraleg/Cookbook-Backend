@@ -1,8 +1,10 @@
-require 'jwt'
-require 'dotenv-rails'
-require 'bcrypt'
 
 class ApplicationController < ActionController::API
+
+  require 'jwt'
+  require 'dotenv-rails'
+  require 'bcrypt'
+
 
   def authenticate_token
     puts "AUTHENTICATE JWT"
