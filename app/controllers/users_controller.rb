@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   #user login with authenitcation and json web tokens
   def login
+    byebug
     user = User.find_by(username: params[:user][:username])
     #if the user and the authentication match
     if user && user.authenticate(params[:user][:password])
@@ -35,6 +36,7 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
+    byebug
     @user = User.new(user_params)
 
     if @user.save
