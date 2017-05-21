@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   #user login with authenitcation and json web tokens
   def login
     #byebug
+    puts "In Login METHOD"
+
     user = User.find_by(username: params[:user][:username])
     #if the user and the authentication match
     if user && user.authenticate(params[:user][:password])
