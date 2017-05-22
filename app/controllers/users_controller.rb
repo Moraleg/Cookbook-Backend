@@ -44,6 +44,8 @@ class UsersController < ApplicationController
     else
       render json: @user.errors, status: :unprocessable_entity
     end
+  rescue ActiveRecord::RecordNotUnique
+    render json: {status: 401, message: "Unable to create, username not unique"}
   end
 
   # PATCH/PUT /users/1
