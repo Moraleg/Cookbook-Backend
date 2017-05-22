@@ -31,7 +31,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user
+    #include the recipes the user has made
+    render json: @user.to_json(include: :recipes)
   end
 
   # POST /users

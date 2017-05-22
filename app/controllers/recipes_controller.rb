@@ -18,6 +18,8 @@ class RecipesController < ApplicationController
   # POST /recipes
   def create
     @recipe = Recipe.new(recipe_params)
+    #nested routes
+    @recipe.user_id = params[:user_id]
 
     if @recipe.save
       render json: @recipe, status: :created, location: @recipe
