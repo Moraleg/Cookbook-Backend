@@ -23,7 +23,9 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     #
-    @recipe.user_id = get_current_user
+    @user = get_current_user
+    @recipe.user_id = @user.id
+    #@recipe.user_id = get_current_user
     #get_current_user.id == params[:id].to_i
     #@recipe.user_id = params[:user_id]
 
@@ -37,7 +39,7 @@ class RecipesController < ApplicationController
 
   # PATCH/PUT /recipes/1
   def update
-    if @recipe.update(recipe_params) and @recipe.user_id == get_current_user.id
+    if @recipe.update(recipe_params) and @recipe.user_id == @user.id
       render json: @recipe
     else
       render json: @recipe.errors, status: :unprocessable_entity
@@ -46,7 +48,7 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/1
   def destroy
-    if @recipe.user_id == get_current_user.id
+    if @recipe.user_id == @user.id
       @recipe.destroy
       render json: {status: 200, message: "DELETED"}
     else
