@@ -37,7 +37,7 @@ class RecipesController < ApplicationController
 
   # PATCH/PUT /recipes/1
   def update
-    if @recipe.update(recipe_params)
+    if @recipe.update(recipe_params) and @recipe.user_id == get_current_user.id
       render json: @recipe
     else
       render json: @recipe.errors, status: :unprocessable_entity
@@ -46,7 +46,12 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/1
   def destroy
-    @recipe.destroy
+    if @recipe.user_id == get_current_user.id
+      @recipe.destroy
+      render json: {status: 200, message: "DELETED"}
+    else
+      render json: {status: 401, message: "You don't have permission to delete a recipe that isn't yours!"}
+    end
   end
 
   private
