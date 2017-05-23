@@ -13,7 +13,7 @@
     description: Faker::HowIMetYourMother.catch_phrase,
     directions: Faker::Food.measurement,
     servings: Faker::Number.between(1, 5),
-    img: Faker::LoremPixel.image("50x60")
+    img: 'https://static.pexels.com/photos/29302/pexels-photo.jpg'
   )
 end
 
