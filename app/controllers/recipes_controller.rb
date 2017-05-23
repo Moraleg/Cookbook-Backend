@@ -21,6 +21,10 @@ class RecipesController < ApplicationController
 
   # POST /recipes
   def create
+
+    #need to verify creation only happens if logged in
+
+
     @recipe = Recipe.new(recipe_params)
     #
     @user = get_current_user
