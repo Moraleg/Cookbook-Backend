@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     #
-    @recipe.user_id = get_current_user.id
+    @recipe.user_id = get_current_user
     #get_current_user.id == params[:id].to_i
     #@recipe.user_id = params[:user_id]
 
@@ -57,7 +57,7 @@ class RecipesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe
-      @recipe = Recipe.find(params[:id])
+      @recipe = Recipe.find_by_id(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
