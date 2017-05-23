@@ -6,12 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-1.times do
-    User.create(
-    username: 'guest',
-    password: 'guest'
-    )
-end
+User.create(
+  username: 'guest',
+  password: 'guest'
+)
+
+User.create(
+  username: 'Daisy',
+  password: 'daisy'
+)
 
 Recipe.create(
   title: 'Shrimp and Grits',
@@ -19,7 +22,8 @@ Recipe.create(
   description:  Faker::Lorem.paragraph,
   directions:   Faker::Lorem.paragraph,
   servings:     Faker::Number.between(1, 5),
-  img:          'http://images.media-allrecipes.com/images/61275.jpg'
+  img:          'http://images.media-allrecipes.com/images/61275.jpg',
+  user_id:       1
 )
 Recipe.create(
   title: 'Old Charleston Style Shrimp and Grits',
@@ -27,7 +31,8 @@ Recipe.create(
   description:  Faker::Lorem.paragraph,
   directions:   Faker::Lorem.paragraph,
   servings:     Faker::Number.between(1, 5),
-  img:          'http://images.media-allrecipes.com/images/61275.jpg'
+  img:          'http://images.media-allrecipes.com/images/61275.jpg',
+  user_id:       1
 )
 Recipe.create(
   title: 'Cinnamon Belgian Waffles',
@@ -35,7 +40,8 @@ Recipe.create(
   description:  Faker::Lorem.paragraph,
   directions:   Faker::Lorem.paragraph,
   servings:     Faker::Number.between(1, 5),
-  img:       'http://images.media-allrecipes.com/userphotos/720x405/3571874.jpg'
+  img:       'http://images.media-allrecipes.com/userphotos/720x405/3571874.jpg',
+  user_id:       1
 )
 Recipe.create(
   title: 'Shrimp and Grits',
@@ -43,7 +49,8 @@ Recipe.create(
   description:  Faker::Lorem.paragraph,
   directions:   Faker::Lorem.paragraph,
   servings:     Faker::Number.between(1, 5),
-  img:          'http://images.media-allrecipes.com/images/61275.jpg'
+  img:          'http://images.media-allrecipes.com/images/61275.jpg',
+  user_id:       1
 )
 Recipe.create(
   title: 'Jalapeno Steak',
@@ -51,7 +58,8 @@ Recipe.create(
   description:  Faker::Lorem.paragraph,
   directions:   Faker::Lorem.paragraph,
   servings:     Faker::Number.between(1, 5),
-  img:          'http://images.media-allrecipes.com/userphotos/720x405/3889279.jpg'
+  img:          'http://images.media-allrecipes.com/userphotos/720x405/3889279.jpg',
+  user_id:       1
 )
 Recipe.create(
   title: 'Blackened Catfish and Spicy Rice',
@@ -59,7 +67,8 @@ Recipe.create(
   description:  Faker::Lorem.paragraph,
   directions:   Faker::Lorem.paragraph,
   servings:     Faker::Number.between(1, 5),
-  img:          'http://images.media-allrecipes.com/userphotos/720x405/866245.jpg'
+  img:          'http://images.media-allrecipes.com/userphotos/720x405/866245.jpg',
+  user_id:       1
 )
 Recipe.create(
   title: 'Pumpkin Dessert',
@@ -67,7 +76,8 @@ Recipe.create(
   description:  Faker::Lorem.paragraph,
   directions:   Faker::Lorem.paragraph,
   servings:     Faker::Number.between(1, 5),
-  img:          'http://images.media-allrecipes.com/userphotos/720x405/1568843.jpg'
+  img:          'http://images.media-allrecipes.com/userphotos/720x405/1568843.jpg',
+  user_id:       2
 )
 Recipe.create(
   title: 'Seafood Fettuccine',
@@ -75,7 +85,8 @@ Recipe.create(
   description:  Faker::Lorem.paragraph,
   directions:   Faker::Lorem.paragraph,
   servings:     Faker::Number.between(1, 5),
-  img:          'http://images.media-allrecipes.com/userphotos/720x405/4502986.jpg'
+  img:          'http://images.media-allrecipes.com/userphotos/720x405/4502986.jpg',
+  user_id:       2
 )
 Recipe.create(
   title: 'Seafood Creole',
@@ -83,7 +94,9 @@ Recipe.create(
   description:  Faker::Lorem.paragraph,
   directions:   Faker::Lorem.paragraph,
   servings:     Faker::Number.between(1, 5),
-  img:          'http://images.media-allrecipes.com/userphotos/720x405/4460829.jpg'
+  img:          'http://images.media-allrecipes.com/userphotos/720x405/4460829.jpg',
+  user_id:       2
+
 )
 Recipe.create(
   title: 'Mississippi Mud Cheesecake',
@@ -91,7 +104,9 @@ Recipe.create(
   description:  Faker::Lorem.paragraph,
   directions:   Faker::Lorem.paragraph,
   servings:     Faker::Number.between(1, 5),
-  img:          'http://images.media-allrecipes.com/userphotos/560x315/2333905.jpg'
+  img:          'http://images.media-allrecipes.com/userphotos/560x315/2333905.jpg',
+  user_id:       2
+
 )
 Recipe.create(
   title: 'Dessert Pizza',
@@ -99,5 +114,7 @@ Recipe.create(
   description:  Faker::Lorem.paragraph,
   directions:   Faker::Lorem.paragraph,
   servings:     Faker::Number.between(1, 5),
-  img:          'http://images.media-allrecipes.com/userphotos/250x250/618338.jpg'
+  img:          'http://images.media-allrecipes.com/userphotos/250x250/618338.jpg',
+  user_id:       2
+
 )
