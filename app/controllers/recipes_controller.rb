@@ -32,7 +32,7 @@ class RecipesController < ApplicationController
 
   # PATCH/PUT /recipes/1
   def update
-    if @recipe.update(recipe_params)
+    if @recipe.update(recipe_params) #&& @recipe.user_id == get_current_user.id
       render json: @recipe
     else
       render json: @recipe.errors, status: :unprocessable_entity
@@ -41,7 +41,10 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/1
   def destroy
-    @recipe.destroy
+    #if @recipe.user_id == get_current_user.id
+      @recipe.destroy
+    #else
+      #render json:
   end
 
   private
