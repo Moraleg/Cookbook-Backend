@@ -18,8 +18,10 @@ class RecipesController < ApplicationController
   # POST /recipes
   def create
     @recipe = Recipe.new(recipe_params)
-    #nested routes
-    @recipe.user_id = params[:user_id]
+    #
+    @recipe.user_id = get_current_user.id
+    #get_current_user.id == params[:id].to_i
+    #@recipe.user_id = params[:user_id]
 
     if @recipe.save
       render json: @recipe, status: :created, location: @recipe
@@ -50,6 +52,6 @@ class RecipesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def recipe_params
-      params.require(:recipe).permit(:title, :ingredients, :description, :directions, :servings, :img)
+      params.require(:recipe).permit(:title, :ingredients, :description, :directions, :servings, :img, :user_id)
     end
 end

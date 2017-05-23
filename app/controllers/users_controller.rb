@@ -31,8 +31,11 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    #include the recipes the user has made
-    render json: @user.to_json(include: :recipes)
+    # one_recipe = Recipe.find(params[:id])
+    # FOLLOW THIS STRUCTURE?
+    # render json: { recipes: one_recipe, status: 200 }
+
+    render json: @user
   end
 
   # POST /users
