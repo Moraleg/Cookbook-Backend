@@ -1,8 +1,10 @@
-require 'jwt'
-require 'dotenv-rails'
-require 'bcrypt'
 
 class ApplicationController < ActionController::API
+
+  require 'jwt'
+  require 'dotenv-rails'
+  require 'bcrypt'
+
 
   def authenticate_token
     puts "AUTHENTICATE JWT"
@@ -35,6 +37,7 @@ class ApplicationController < ActionController::API
   def get_current_user
     return if !bearer_token
     decoded_jwt = decode_token(bearer_token)
+    #puts "HELLO THERE WORLD I AM PRINTING HERE ================"
     User.find(decoded_jwt[0]["user"]["id"])
   end
 

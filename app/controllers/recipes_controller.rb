@@ -16,12 +16,16 @@ class RecipesController < ApplicationController
         render json: {
             recipes: one_recipe,
             status: 200 }
-        
+
   end
 
   # POST /recipes
   def create
     @recipe = Recipe.new(recipe_params)
+    #
+    @recipe.user_id = get_current_user.id
+    #get_current_user.id == params[:id].to_i
+    #@recipe.user_id = params[:user_id]
 
     if @recipe.save
       render json: @recipe, status: :created,
@@ -53,6 +57,8 @@ class RecipesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def recipe_params
+
       params.require(:recipe).permit(:id, :user_id, :title, :ingredients, :description, :directions, :servings, :img)
+
     end
 end

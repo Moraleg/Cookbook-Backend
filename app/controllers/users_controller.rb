@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   #user login with authenitcation and json web tokens
   def login
+    #byebug
     user = User.find_by(username: params[:user][:username])
     #if the user and the authentication match
     if user && user.authenticate(params[:user][:password])
@@ -30,11 +31,16 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    # one_recipe = Recipe.find(params[:id])
+    # FOLLOW THIS STRUCTURE?
+    # render json: { recipes: one_recipe, status: 200 }
+
     render json: @user
   end
 
   # POST /users
   def create
+    #byebug
     @user = User.new(user_params)
 
     if @user.save
@@ -42,6 +48,8 @@ class UsersController < ApplicationController
     else
       render json: @user.errors, status: :unprocessable_entity
     end
+  rescue ActiveRecord::RecordNotUnique
+    render json: {status: 401, message: "Unable to create, username not unique"}
   end
 
   # PATCH/PUT /users/1
@@ -84,7 +92,7 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:username, :password_digest)
+      params.require(:user).permit(:username, :password, :password_confirmation, :password_digest)
     end
 
 
