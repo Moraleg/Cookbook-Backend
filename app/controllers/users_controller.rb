@@ -31,6 +31,10 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    # one_recipe = Recipe.find(params[:id])
+    # FOLLOW THIS STRUCTURE?
+    # render json: { recipes: one_recipe, status: 200 }
+
     render json: @user
   end
 
