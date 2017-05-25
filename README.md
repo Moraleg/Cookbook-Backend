@@ -1,24 +1,34 @@
-# README
+Cookbook app - Hungry For More
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+WDIR Hopper Project 4 - Emily, Anthony, Geraldine
 
-Things you may want to cover:
+Live Site
 
-* Ruby version
+https://hungry-for-more-app.herokuapp.com/
 
-* System dependencies
+Technologies Used
 
-* Configuration
+HTML
+CSS
+JavaScript (Node.js and jQuery)
+AngularJS
+Express.js
+Body-parser
+Ruby on Rails
 
-* Database creation
+Approach Taken
 
-* Database initialization
+Two-model CRUD application for creating and sharing recipes. Users can create an account, login, and create recipe posts to share. The recipes page primarily utilizes flexbox and AngularJS's filtering capabilities.
 
-* How to run the test suite
+Unsolved Problems
 
-* Services (job queues, cache servers, search engines, etc.)
+Although update and delete for users and recipes worked on the backend via postman testing, we were unable to grab the user ID or recipe ID to update and delete users and recipes on the front end.
 
-* Deployment instructions
 
-* ...
+Notes/Planned Features
+
+Getting our update and delete routes working on the front end
+Adding user reviews on recipes
+Adding ratings for recipes posted
+Change account settings to allow photos and location for the user
+Various UI improvements
