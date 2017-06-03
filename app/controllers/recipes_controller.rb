@@ -10,13 +10,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1
   def show
-        one_recipe =
-        Recipe.find_by_id(params[:id])
-
-        render json: {
-            recipes: one_recipe,
-            status: 200 }
-
+    render json: @recipe
   end
 
   # POST /recipes
