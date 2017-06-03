@@ -46,15 +46,15 @@ class RecipesController < ApplicationController
   end
 
   # DELETE /recipes/1
-  def destroy
-    @user = get_current_user
-    if @recipe.user_id == @user.id
-      @recipe.destroy
-      render json: {status: 200, message: "DELETED"}
-    else
-      render json: {status: 401, message: "You don't have permission to delete a recipe that isn't yours!"}
-    end
-  end
+  # def destroy
+  #   @user = get_current_user
+  #   if @recipe.user_id == @user.id
+  #     @recipe.destroy
+  #     render json: {status: 200, message: "DELETED"}
+  #   else
+  #     render json: {status: 401, message: "You don't have permission to delete a recipe that isn't yours!"}
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
