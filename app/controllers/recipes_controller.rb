@@ -47,6 +47,7 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/1
   def destroy
+    @user = get_current_user
     if @recipe.user_id == @user.id
       @recipe.destroy
       render json: {status: 200, message: "DELETED"}
