@@ -16,6 +16,12 @@ User.create(
   password: 'daisy'
 )
 
+1.times do
+    User.create(
+    username: 'test',
+    password: 'test'
+    )
+
 Recipe.create(
   title: 'Shrimp and Grits',
   ingredients:  Faker::StarWars.quote,
@@ -117,5 +123,4 @@ Recipe.create(
   servings:     Faker::Number.between(1, 5),
   img:          'http://images.media-allrecipes.com/userphotos/250x250/618338.jpg',
   user_id:       2
-
 )
