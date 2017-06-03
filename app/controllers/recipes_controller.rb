@@ -37,6 +37,7 @@ class RecipesController < ApplicationController
 
   # PATCH/PUT /recipes/1
   def update
+    @user = get_current_user
     if @recipe.update(recipe_params) and @recipe.user_id == @user.id
       render json: @recipe
     else
