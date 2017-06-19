@@ -21,6 +21,7 @@ User.create(
     password: 'test'
     )
 
+
 Recipe.create(
   title: 'Shrimp and Grits',
   ingredients:  Faker::StarWars.quote,
