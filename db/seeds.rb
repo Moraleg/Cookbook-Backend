@@ -16,8 +16,7 @@ User.create(
   password: 'daisy'
 )
 
-1.times do
-    User.create(
+User.create(
     username: 'test',
     password: 'test'
     )
