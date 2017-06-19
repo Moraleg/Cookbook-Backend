@@ -16,12 +16,6 @@ User.create(
   password: 'daisy'
 )
 
-1.times do
-    User.create(
-    username: 'test',
-    password: 'test'
-    )
-
 Recipe.create(
   title: 'Shrimp and Grits',
   ingredients:  Faker::StarWars.quote,
